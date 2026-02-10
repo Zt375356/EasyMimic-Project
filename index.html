@@ -132,7 +132,7 @@
                 <img src="assets/fig/Lowcostframework.png" alt="Low Cost Framework" class="w-full h-auto object-contain p-4">
                 <div class="p-6 border-t border-gray-100 bg-gray-50">
                     <p class="text-gray-700 text-center">
-                        <strong>Figure 1:</strong> Overview of our proposed low-cost framework. It efficiently synthesizes high-fidelity talking heads with minimal computational resources.
+                        <strong>Figure 1:</strong> Overview of our proposed low-cost framework. It efficiently enables robot imitation learning from human videos with minimal computational resources.
                     </p>
                 </div>
             </div>
@@ -167,7 +167,7 @@
                     <h3 class="text-2xl font-bold text-gray-800">Physical Alignment</h3>
                 </div>
                 <p class="text-gray-600 leading-relaxed text-lg mb-6">
-                    We present EasyMimic, a generalized bimodal method capable of generating controllable 3D talking heads with consumer-level equipment. It features a physical alignment module that explicitly decouples facial expressions from identity and pose by leveraging the physical structure of a 3D Morphable Model (3DMM) for precise expression control.
+                    Our method first extracts 3D hand trajectories from the RGB videos. The physical alignment module then maps these trajectories to the gripper control space of the robot, ensuring precise motion transfer from human demonstrations to robot execution.
                 </p>
                 
                 <div class="bg-white p-2 md:p-4 rounded-2xl shadow-lg border border-gray-100 mb-6">
@@ -176,7 +176,7 @@
                     </div>
                     <p class="mt-4 text-gray-600 text-center text-sm font-medium">
                         <strong>Figure 2: Physical Alignment.</strong> 
-                        The physical alignment module decouples expressions from identity and pose using 3DMM parameters.
+                        The physical alignment module maps extracted human hand trajectories to the robot's gripper control space.
                     </p>
                 </div>
             </div>
@@ -194,11 +194,11 @@
                     </div>
                     <p class="mt-4 text-gray-600 text-center text-sm font-medium">
                         <strong>Figure 3: Co-Training Strategy.</strong> 
-                        Our co-training strategy utilizing dual-modality inputs (audio and video) for robust performance.
+                        Overview of the co-training process leveraging both human and robot data for robust policy learning.
                     </p>
                 </div>
                 <p class="text-gray-600 leading-relaxed text-lg">
-                    A co-training strategy is introduced to utilize dual-modality inputs (audio and video) for robust performance. By integrating these components, our approach synthesizes photorealistic, high-fidelity, and lip-syncing 3D avatars, significantly outperforming existing methods in visual quality and emotion accuracy.
+                    We employ a co-training strategy that fine-tunes the policy on both the processed human data and a small amount of robot data. This enables the robot to rapidly adapt to new tasks and generalize effectively across different manipulation scenarios.
                 </p>
             </div>
 

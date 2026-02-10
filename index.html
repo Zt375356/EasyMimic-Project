@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- REPLACE: Project Title -->
-    <title>[EasyMimic]: [A Low-Cost Framework for Robot Imitation Learning from Human Videos]</title>
+    <title>EasyMimic: A Low-Cost Framework for Robot Imitation Learning from Human Videos</title>
     <!-- REPLACE: Google Site Verification or remove -->
     <meta name="google-site-verification" content="Your-Verification-Code" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -50,7 +50,7 @@
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0 font-bold text-xl tracking-tighter cursor-pointer hover:opacity-80 transition" onclick="window.scrollTo(0,0)">
                     <!-- REPLACE: Logo/Name -->
-                    <span class="text-blue-600">[Your]</span>[Project]
+                    <span class="text-blue-600">EasyMimic
                 </div>
                 <div class="hidden md:flex space-x-8">
                     <!-- REPLACE: Navigation Links -->
@@ -68,7 +68,7 @@
         <div class="max-w-6xl mx-auto">
             <h1 class="text-4xl md:text-6xl font-extrabold mb-8 leading-tight tracking-tight">
                 <!-- REPLACE: Hero Title -->
-                <span class="gradient-text">[EasyMimic]</span>: <br class="hidden md:block"> [A Low-Cost Robot Imitation Learning Framework from Human Videos]
+                <span class="gradient-text">EasyMimic</span>: <br class="hidden md:block"> A Low-Cost Robot Imitation Learning Framework from Human Videos
             </h1>
             
             <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-lg mb-4 text-blue-600 font-medium">
@@ -152,7 +152,7 @@
                 </video>
             </div>
             <p class="text-center mt-4 text-gray-600">
-                [Description of your video content]
+                Demo video showcasing EasyMimic performing various manipulation tasks.
             </p>
         </div>
     </section>
@@ -161,45 +161,45 @@
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-16 text-gray-900">Methodology</h2>
             
-            <!-- Subsection 1: Retargeting -->
+            <!-- Subsection 1: Physical Alignment -->
             <div class="mb-20">
                 <div class="flex items-center gap-4 mb-8 border-b border-gray-100 pb-4">
                     <span class="bg-blue-100 text-blue-800 text-lg font-bold px-4 py-1.5 rounded-full">Part 1</span>
-                    <h3 class="text-2xl font-bold text-gray-800">Retargeting Framework</h3>
+                    <h3 class="text-2xl font-bold text-gray-800">Physical Alignment</h3>
                 </div>
+                <p class="text-gray-600 leading-relaxed text-lg mb-6">
+                    We present EasyMimic, a generalized bimodal method capable of generating controllable 3D talking heads with consumer-level equipment. It features a physical alignment module that explicitly decouples facial expressions from identity and pose by leveraging the physical structure of a 3D Morphable Model (3DMM) for precise expression control.
+                </p>
                 
                 <div class="bg-white p-2 md:p-4 rounded-2xl shadow-lg border border-gray-100 mb-6">
                     <div class="rounded-xl overflow-hidden bg-white">
-                        <img src="assets/fig/retargeting_framework.png" alt="Retargeting Framework" class="w-full h-auto object-contain">
+                        <img src="assets/fig/retargeting_framework.png" alt="Physical Alignment" class="w-full h-auto object-contain">
                     </div>
                     <p class="mt-4 text-gray-600 text-center text-sm font-medium">
-                        <strong>Figure 3: Retargeting Process.</strong> 
-                        Our method ensures precise facial motion transfer from source to target.
+                        <strong>Figure 2: Physical Alignment.</strong> 
+                        The physical alignment module decouples expressions from identity and pose using 3DMM parameters.
                     </p>
                 </div>
-                <p class="text-gray-600 leading-relaxed text-lg">
-                    [Describe the retargeting process here. Explain how the motion is extracted and applied to the target 3D Gaussian model, ensuring identity preservation and emotion fidelity.]
-                </p>
             </div>
 
-            <!-- Subsection 2: Training Strategy -->
+            <!-- Subsection 2: Co-Training Strategy -->
             <div>
                 <div class="flex items-center gap-4 mb-8 border-b border-gray-100 pb-4">
                     <span class="bg-purple-100 text-purple-800 text-lg font-bold px-4 py-1.5 rounded-full">Part 2</span>
-                    <h3 class="text-2xl font-bold text-gray-800">Training Strategy</h3>
+                    <h3 class="text-2xl font-bold text-gray-800">Co-Training Strategy</h3>
                 </div>
                 
                 <div class="bg-white p-2 md:p-4 rounded-2xl shadow-lg border border-gray-100 mb-6">
                     <div class="rounded-xl overflow-hidden bg-white">
-                        <img src="assets/fig/trainingstrategy.png" alt="Training Strategy" class="w-full h-auto object-contain">
+                        <img src="assets/fig/trainingstrategy.png" alt="Co-Training Strategy" class="w-full h-auto object-contain">
                     </div>
                     <p class="mt-4 text-gray-600 text-center text-sm font-medium">
-                        <strong>Figure 4: Training Strategy.</strong> 
-                        Overview of losses and optimization steps used to train the model.
+                        <strong>Figure 3: Co-Training Strategy.</strong> 
+                        Our co-training strategy utilizing dual-modality inputs (audio and video) for robust performance.
                     </p>
                 </div>
                 <p class="text-gray-600 leading-relaxed text-lg">
-                    [Describe the training strategy here. Detail the loss functions, optimization techniques, and data processing steps that contribute to the model's robustness and efficiency.]
+                    A co-training strategy is introduced to utilize dual-modality inputs (audio and video) for robust performance. By integrating these components, our approach synthesizes photorealistic, high-fidelity, and lip-syncing 3D avatars, significantly outperforming existing methods in visual quality and emotion accuracy.
                 </p>
             </div>
 

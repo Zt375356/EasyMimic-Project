@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- REPLACE: Project Title -->
+    <title>[EasyMimic]: [A Low-Cost Framework for Robot Imitation Learning from Human Videos]</title>
+    <!-- REPLACE: Google Site Verification or remove -->
+    <meta name="google-site-verification" content="Your-Verification-Code" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg {
+            background: radial-gradient(circle at top right, #eff6ff, #ffffff);
+        }
+        /* Custom scrollbar for galleries/tables */
+        .custom-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #c7c7c7;
+            border-radius: 4px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 font-bold text-xl tracking-tighter cursor-pointer hover:opacity-80 transition" onclick="window.scrollTo(0,0)">
+                    <!-- REPLACE: Logo/Name -->
+                    <span class="text-blue-600">[Your]</span>[Project]
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <!-- REPLACE: Navigation Links -->
+                    <a href="#abstract" class="text-gray-600 hover:text-blue-600 transition font-medium">Abstract</a>
+                    <a href="#video" class="text-gray-600 hover:text-blue-600 transition font-medium">Video</a>
+                    <a href="#method" class="text-gray-600 hover:text-blue-600 transition font-medium">Method</a>
+                    <a href="#results" class="text-gray-600 hover:text-blue-600 transition font-medium">Results</a>
+                    <a href="#acknowledgments" class="text-gray-600 hover:text-blue-600 transition font-medium">Acknowledgments</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-bg pt-20 pb-16 text-center px-4">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-8 leading-tight tracking-tight">
+                <!-- REPLACE: Hero Title -->
+                <span class="gradient-text">[Your Project Title]</span>: <br class="hidden md:block"> [Your Project Subtitle / Description]
+            </h1>
+            
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-lg mb-4 text-blue-600 font-medium">
+                <!-- REPLACE: Authors -->
+                <a href="#" target="_blank" class="hover:underline hover:text-blue-800 transition relative">Author Name<sup>1</sup></a>
+                <a href="#" class="hover:underline hover:text-blue-800 transition relative">Author Name<sup>1</sup></a>
+                <a href="#" class="hover:underline hover:text-blue-800 transition relative">Author Name<sup>2</sup></a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm md:text-base text-gray-600 mb-10">
+                <!-- REPLACE: Affiliations -->
+                <div class="flex items-center">
+                    <span class="font-bold mr-1"><sup>1</sup></span> Institution Name 1
+                </div>
+                <div class="flex items-center">
+                    <span class="font-bold mr-1"><sup>2</sup></span> Institution Name 2
+                </div>
+            </div>
+            
+            <div class="flex justify-center gap-4 mb-12">
+                <!-- REPLACE: Links to Paper/Code -->
+                <a href="#" class="flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-full hover:bg-gray-700 transition shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform">
+                    <i class="fa-regular fa-file-pdf"></i>
+                    <span>Paper</span>
+                </a>
+                <a href="#" class="flex items-center gap-2 bg-gray-800 text-white px-6 py-3 rounded-full hover:bg-gray-600 transition shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform">
+                    <i class="fa-brands fa-github"></i>
+                    <span>Code</span>
+                </a>
+            </div>
+
+            <div class="max-w-5xl mx-auto mb-10">
+                <div class="bg-gray-100 rounded-2xl overflow-hidden shadow-2xl border border-gray-300">
+                    <!-- REPLACE: Teaser Image -->
+                    <img src="assets/images/teaser.png" alt="Teaser Figure" class="w-full h-auto">
+                </div>
+                <p class="mt-4 text-sm text-gray-500 italic text-center w-full">
+                    ** Figure 1: [Description of your teaser image]
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <section id="abstract" class="py-12 bg-white border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-900">Abstract</h2>
+            <p class="text-justify text-lg leading-relaxed text-gray-600">
+                Robot imitation learning is often hindered by the high cost of collecting large-scale, real-world data. 
+                This challenge is especially significant for low-cost robots designed for home use, as they must be both user-friendly and affordable.
+                To address this, we propose the <strong>EasyMimic framework</strong>, 
+                a low-cost and replicable solution that enables robots to quickly learn manipulation policies from human video demonstrations captured with standard RGB cameras.
+                Our method first extracts 3D hand trajectories from the videos. 
+                An action alignment module then maps these trajectories to the gripper control space of a low-cost robot. 
+                To bridge the human-to-robot domain gap, we introduce a simple and user-friendly hand visual augmentation strategy. 
+                We then use a co-training method, fine-tuning a model on both the processed human data and a small amount of robot data, enabling rapid adaptation to new tasks.
+                Experiments on the low-cost LeRobot platform demonstrate that EasyMimic achieves high performance across various manipulation tasks. 
+                It significantly reduces the reliance on expensive robot data collection, offering a practical path for bringing intelligent robots into homes.
+            </p>
+        </div>
+    </section>
+
+    <!-- New Section: Low-cost Framework Overview -->
+    <section id="overview" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10 text-gray-900">
+                Low-Cost Framework Overview
+            </h2>
+            <div class="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-200">
+                <!-- Using fig/Lowcostframework.pdf -->
+                <img src="assets/fig/Lowcostframework.pdf" alt="Low Cost Framework" class="w-full h-auto object-contain p-4">
+                <div class="p-6 border-t border-gray-100 bg-gray-50">
+                    <p class="text-gray-700 text-center">
+                        <strong>Figure 2:</strong> Overview of our proposed low-cost framework. It efficiently synthesizes high-fidelity talking heads with minimal computational resources.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="video" class="py-16 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10 text-gray-900">
+                <i class="fa-solid fa-clapperboard text-blue-600 mr-2"></i> Demo Video
+            </h2>
+            <div class="rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-black">
+                <video class="w-full aspect-video" controls poster="">
+                    <!-- REPLACE: Video File -->
+                    <source src="assets/videos/redpandacompress_EmoDiffTalk_video demo1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p class="text-center mt-4 text-gray-600">
+                [Description of your video content]
+            </p>
+        </div>
+    </section>
+
+    <section id="method" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-900">Methodology</h2>
+            
+            <!-- Subsection 1: Retargeting -->
+            <div class="mb-20">
+                <div class="flex items-center gap-4 mb-8 border-b border-gray-100 pb-4">
+                    <span class="bg-blue-100 text-blue-800 text-lg font-bold px-4 py-1.5 rounded-full">Part 1</span>
+                    <h3 class="text-2xl font-bold text-gray-800">Retargeting Framework</h3>
+                </div>
+                
+                <div class="bg-white p-2 md:p-4 rounded-2xl shadow-lg border border-gray-100 mb-6">
+                    <div class="rounded-xl overflow-hidden bg-white">
+                        <img src="assets/fig/retargeting_framework.pdf" alt="Retargeting Framework" class="w-full h-auto object-contain">
+                    </div>
+                    <p class="mt-4 text-gray-600 text-center text-sm font-medium">
+                        <strong>Figure 3: Retargeting Process.</strong> 
+                        Our method ensures precise facial motion transfer from source to target.
+                    </p>
+                </div>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    [Describe the retargeting process here. Explain how the motion is extracted and applied to the target 3D Gaussian model, ensuring identity preservation and emotion fidelity.]
+                </p>
+            </div>
+
+            <!-- Subsection 2: Training Strategy -->
+            <div>
+                <div class="flex items-center gap-4 mb-8 border-b border-gray-100 pb-4">
+                    <span class="bg-purple-100 text-purple-800 text-lg font-bold px-4 py-1.5 rounded-full">Part 2</span>
+                    <h3 class="text-2xl font-bold text-gray-800">Training Strategy</h3>
+                </div>
+                
+                <div class="bg-white p-2 md:p-4 rounded-2xl shadow-lg border border-gray-100 mb-6">
+                    <div class="rounded-xl overflow-hidden bg-white">
+                        <img src="assets/fig/trainingstrategy.pdf" alt="Training Strategy" class="w-full h-auto object-contain">
+                    </div>
+                    <p class="mt-4 text-gray-600 text-center text-sm font-medium">
+                        <strong>Figure 4: Training Strategy.</strong> 
+                        Overview of losses and optimization steps used to train the model.
+                    </p>
+                </div>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    [Describe the training strategy here. Detail the loss functions, optimization techniques, and data processing steps that contribute to the model's robustness and efficiency.]
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="results" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4 text-gray-900">Experimental Results</h2>
+            <p class="text-center text-gray-500 mb-12">
+                Qualitative and quantitative evaluation of our method.
+            </p>
+
+            <!-- Qualitative Results -->
+            <div class="mb-16">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold shadow-md">1</div>
+                    <h3 class="text-xl font-bold text-gray-800">Qualitative Visualizations</h3>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-2 md:p-3 rounded-xl shadow-lg border border-gray-200">
+                        <div class="overflow-hidden rounded-lg bg-white">
+                            <img src="assets/fig/case_study.pdf" alt="Case Study" class="w-full h-auto object-contain">
+                        </div>
+                        <p class="mt-4 text-sm text-gray-600 px-2 pb-2">
+                            <strong>Figure 5: Case Study.</strong> Comparison with other methods.
+                        </p>
+                    </div>
+
+                     <div class="bg-white p-2 md:p-3 rounded-xl shadow-lg border border-gray-200">
+                        <div class="overflow-hidden rounded-lg bg-white">
+                            <img src="assets/fig/VA_case.pdf" alt="VA Case" class="w-full h-auto object-contain">
+                        </div>
+                        <p class="mt-4 text-sm text-gray-600 px-2 pb-2">
+                            <strong>Figure 6: VA Case.</strong> Visual analysis results.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quantitative Results -->
+            <div class="mb-16">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold shadow-md">2</div>
+                    <h3 class="text-xl font-bold text-gray-800">Quantitative Evaluation</h3>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-2 md:p-3 rounded-xl shadow-lg border border-gray-200">
+                         <!-- Assuming user wants to show these plots/tables -->
+                        <div class="overflow-hidden rounded-lg bg-white">
+                            <img src="assets/fig/human_number.pdf" alt="Human Evaluation" class="w-full h-auto object-contain">
+                        </div>
+                        <p class="mt-4 text-sm text-gray-600 px-2 pb-2">
+                            <strong>Figure 7: Human Evaluation Metrics.</strong>
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-2 md:p-3 rounded-xl shadow-lg border border-gray-200">
+                        <div class="overflow-hidden rounded-lg bg-white">
+                            <img src="assets/fig/robot_number.pdf" alt="Robot Evaluation" class="w-full h-auto object-contain">
+                        </div>
+                        <p class="mt-4 text-sm text-gray-600 px-2 pb-2">
+                            <strong>Figure 8: Quantitative Metrics.</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="acknowledgments" class="py-16 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Acknowledgments</h2>
+            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 text-center">
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    [Your Acknowledgments here, e.g. funding sources, advisors, etc.]
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="bibtex" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Citation</h2>
+            <div class="relative bg-gray-900 rounded-xl p-6 shadow-xl overflow-hidden group">
+                <button onclick="copyBibtex()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition p-2 rounded-md hover:bg-gray-700" title="Copy to Clipboard">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+                <pre class="text-gray-300 font-mono text-sm overflow-x-auto whitespace-pre-wrap leading-relaxed" id="bibtex-content">
+@misc{your_project_citation,
+      title={[Your Project Title]}, 
+      author={[Author Names]},
+      year={[Year]},
+      eprint={[ID]},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={[URL]}, 
+}
+</pre>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white border-t border-gray-100 py-10 text-center text-gray-500 text-sm">
+        <p>© 2026 [Your Project Name]. All Rights Reserved.</p>
+        <div class="mt-4 flex justify-center space-x-4">
+            <a href="#" class="hover:text-blue-600 transition"><i class="fa-brands fa-github text-xl"></i></a>
+            <a href="#" class="hover:text-blue-600 transition"><i class="fa-brands fa-twitter text-xl"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        function copyBibtex() {
+            const content = document.getElementById('bibtex-content').innerText;
+            navigator.clipboard.writeText(content).then(() => {
+                const btn = document.querySelector('button[onclick="copyBibtex()"] i');
+                btn.className = 'fa-solid fa-check text-green-400';
+                setTimeout(() => {
+                    btn.className = 'fa-regular fa-copy';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -207,80 +207,262 @@
     <section id="results" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-4 text-gray-900">Experimental Results</h2>
-            <p class="text-center text-gray-500 mb-12">
-                Qualitative and quantitative evaluation of our method.
-            </p>
+            <div class="max-w-4xl mx-auto text-lg text-gray-700 mb-12 leading-relaxed">
+                In this section, we introduce the manipulation tasks and experimental setups. 
+                We then present a comparison with baseline methods and provide a detailed analysis to validate the effectiveness of our approach.
+            </div>
 
-            <!-- Qualitative Results -->
+            <!-- Experimental Setup -->
             <div class="mb-16">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold shadow-md">1</div>
-                    <h3 class="text-xl font-bold text-gray-800">Qualitative Visualizations</h3>
-                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-blue-600 pl-4">1. Experimental Setup</h3>
                 
+                <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-8 mb-8">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">Hardware and Tasks</h4>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Our experimental platform uses a 6-DoF so100-plus robotic arm equipped with a two-finger gripper.
+                        The vision system includes two monocular RGB cameras: one fixed above the robot's base for a top-down global view, and another mounted on the wrist for an end-effector-centric first-person view.
+                        We evaluate our method on four tabletop manipulation tasks:
+                    </p>
+                    <ul class="grid md:grid-cols-2 gap-4">
+                        <li class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                            <span class="font-bold text-blue-700">Pick and Place (Pick):</span>
+                            <p class="text-sm text-gray-600 mt-2">The robot picks up a toy duck and places it into a bowl. Success (1.0) = grasping (0.5) + placing (0.5).</p>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                            <span class="font-bold text-blue-700">Pull and Push (Pull):</span>
+                            <p class="text-sm text-gray-600 mt-2">Robot pulls open a drawer and pushes it closed. Success (1.0) = pulling (0.5) + pushing (0.5).</p>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                            <span class="font-bold text-blue-700">Stacking (Stack):</span>
+                            <p class="text-sm text-gray-600 mt-2">Stack a cube on a block, then a pyramid on the cube. Each stack awards 0.5 points.</p>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                            <span class="font-bold text-blue-700">Language Conditioned (LC):</span>
+                            <p class="text-sm text-gray-600 mt-2">Execute natural language instructions specifying target object and goal (e.g., "pick up the pink duck...").</p>
+                        </li>
+                    </ul>
+                </div>
+
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white p-2 md:p-3 rounded-xl shadow-lg border border-gray-200">
-                        <div class="overflow-hidden rounded-lg bg-white">
-                            <img src="assets/fig/case_study.png" alt="Case Study" class="w-full h-auto object-contain">
-                        </div>
-                        <p class="mt-4 text-sm text-gray-600 px-2 pb-2">
-                            <strong>Figure 4: Case Study.</strong> Comparison with other methods.
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-8">
+                        <h4 class="text-xl font-bold text-gray-800 mb-4">Model & Training</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            We use the pre-trained Gr00T N1.5-3B foundation VLA model. 
+                            The policy network outputs absolute actions (6-DoF end-effector poses + gripper states).
+                            Training: 5,000 gradient steps, AdamW optimizer (lr=1e-4), batch size 32, on a single NVIDIA RTX 4090 GPU.
                         </p>
                     </div>
-
-                     <div class="bg-white p-2 md:p-3 rounded-xl shadow-lg border border-gray-200">
-                        <div class="overflow-hidden rounded-lg bg-white">
-                            <img src="assets/fig/VA_case.png" alt="VA Case" class="w-full h-auto object-contain">
-                        </div>
-                        <p class="mt-4 text-sm text-gray-600 px-2 pb-2">
-                            <strong>Figure 5: VA Case.</strong> Visual analysis results.
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-8">
+                        <h4 class="text-xl font-bold text-gray-800 mb-4">Data Collection</h4>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            For each task: 100 human video demonstrations vs. 20 robot teleoperation trajectories.
+                            Human data collection rate is substantially higher (up to 12.5 demos/min) compared to robot teleoperation (max 2 demos/min), highlighting efficiency.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Quantitative Results -->
+            <!-- Main Results -->
             <div class="mb-16">
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold shadow-md">2</div>
-                    <h3 class="text-xl font-bold text-gray-800">Quantitative Evaluation</h3>
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-indigo-600 pl-4">2. Main Results</h3>
+                
+                <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-8 mb-8 overflow-x-auto">
+                    <h4 class="text-xl font-bold text-gray-800 mb-6">Comparison of Training Strategies</h4>
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-gray-200">
+                                <th class="py-3 px-4 text-gray-700 font-bold">Strategy</th>
+                                <th class="py-3 px-4 text-gray-700 font-bold">Pick</th>
+                                <th class="py-3 px-4 text-gray-700 font-bold">Pull</th>
+                                <th class="py-3 px-4 text-gray-700 font-bold">Stack</th>
+                                <th class="py-3 px-4 text-gray-700 font-bold">LC</th>
+                                <th class="py-3 px-4 text-blue-700 font-bold">Avg.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-3 px-4 text-gray-600">Robot-Only (10 traj.)</td>
+                                <td class="py-3 px-4 text-gray-600">0.30</td>
+                                <td class="py-3 px-4 text-gray-600">0.30</td>
+                                <td class="py-3 px-4 text-gray-600">0.15</td>
+                                <td class="py-3 px-4 text-gray-600">0.30</td>
+                                <td class="py-3 px-4 text-gray-800 font-medium">0.26</td>
+                            </tr>
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-3 px-4 text-gray-600">Robot-Only (20 traj.)</td>
+                                <td class="py-3 px-4 text-gray-600">0.60</td>
+                                <td class="py-3 px-4 text-gray-600">0.70</td>
+                                <td class="py-3 px-4 text-gray-600">0.35</td>
+                                <td class="py-3 px-4 text-gray-600">0.40</td>
+                                <td class="py-3 px-4 text-gray-800 font-medium">0.51</td>
+                            </tr>
+                            <tr class="border-b border-gray-100 hover:bg-gray-50">
+                                <td class="py-3 px-4 text-gray-600">Pretrain-Finetune</td>
+                                <td class="py-3 px-4 text-gray-600">0.80</td>
+                                <td class="py-3 px-4 text-gray-800 font-bold">0.90</td>
+                                <td class="py-3 px-4 text-gray-600">0.50</td>
+                                <td class="py-3 px-4 text-gray-600">0.80</td>
+                                <td class="py-3 px-4 text-gray-800 font-medium">0.75</td>
+                            </tr>
+                            <tr class="bg-blue-50 border-b border-blue-100">
+                                <td class="py-3 px-4 text-blue-800 font-bold">EasyMimic (Ours)</td>
+                                <td class="py-3 px-4 text-blue-800 font-bold">1.00</td>
+                                <td class="py-3 px-4 text-blue-800 font-bold">0.90</td>
+                                <td class="py-3 px-4 text-blue-800 font-bold">0.70</td>
+                                <td class="py-3 px-4 text-blue-800 font-bold">0.90</td>
+                                <td class="py-3 px-4 text-blue-800 font-bold">0.88</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="mt-4 text-gray-600 text-sm">
+                        Table 2: Performance evaluation. EasyMimic achieves the best performance (0.88 avg), surpassing baselines significantly while maintaining data efficiency.
+                    </p>
+                </div>
+                
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    <strong>Comparison Analysis:</strong> Training with scarce robot data (10-20 trajectories) yields limited performance (0.26-0.51). 
+                    Incorporating human data boosts performance significantly. EasyMimic outperforms Pretrain-Finetune by 0.13 points and Robot-Only (10 traj) by 0.62 points, showing that co-training effectively leverages both human and robot data strengths.
+                </p>
+
+                <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-green-500">
+                    <h4 class="text-lg font-bold text-gray-800 mb-2">Language Condition Performance</h4>
+                    <p class="text-gray-600 text-sm">
+                        In language-conditioned tasks involving distinct object-goal combinations (e.g., pink/green duck into bowl/block), EasyMimic achieves a success rate of <strong>0.90</strong>, compared to just 0.40 for the robot-only baseline. This demonstrates substantial value in utilizing human demonstrations for complex instruction following.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Further Analysis -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-purple-600 pl-4">3. Further Analysis</h3>
+                
+                <!-- Dataset Size -->
+                <div class="mb-12">
+                     <h4 class="text-xl font-bold text-gray-800 mb-4">Effect of Data Scale</h4>
+                     <div class="grid md:grid-cols-2 gap-8 mb-4">
+                        <div class="bg-white p-2 rounded-xl shadow-lg border border-gray-200">
+                            <img src="assets/fig/human_number.png" alt="Effect of Human Data" class="w-full h-auto object-contain">
+                            <p class="mt-2 text-center text-sm text-gray-600 font-medium">Figure 4(a): Varying human data (fixed 10 robot traj).</p>
+                        </div>
+                        <div class="bg-white p-2 rounded-xl shadow-lg border border-gray-200">
+                            <img src="assets/fig/robot_number.png" alt="Effect of Robot Data" class="w-full h-auto object-contain">
+                            <p class="mt-2 text-center text-sm text-gray-600 font-medium">Figure 4(b): Varying robot data (fixed 50 human videos).</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        Increasing human demonstrations consistently improves performance, with optimal gains up to ~50 demos. 
+                        For robot data, performance saturates quickly after 10-20 trajectories when complemented by human data. 
+                        This confirms that high performance can be achieved with minimal expensive robot data if sufficient human data is available.
+                    </p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white p-2 md:p-3 rounded-xl shadow-lg border border-gray-200">
-                         <!-- Assuming user wants to show these plots/tables -->
-                        <div class="overflow-hidden rounded-lg bg-white">
-                            <img src="assets/fig/human_number.png" alt="Human Evaluation" class="w-full h-auto object-contain">
-                        </div>
-                        <p class="mt-4 text-sm text-gray-600 px-2 pb-2">
-                            <strong>Figure 6: Human Evaluation Metrics.</strong>
+                <!-- Alignment & Action Heads -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                     <div class="bg-white p-6 rounded-xl shadow border border-gray-100">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">Ablation: Alignment Strategies</h4>
+                        <ul class="space-y-3 text-sm text-gray-600">
+                            <li class="flex justify-between border-b pb-2">
+                                <span><strong>EasyMimic (Full)</strong></span>
+                                <span class="font-bold text-blue-600">0.87</span>
+                            </li>
+                            <li class="flex justify-between border-b pb-2">
+                                <span>w/o Action Alignment (AA)</span>
+                                <span>0.60 (-0.27)</span>
+                            </li>
+                            <li class="flex justify-between border-b pb-2">
+                                <span>w/o Visual Alignment (VA)</span>
+                                <span>0.40 (-0.47)</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>VA-Partial Masking</span>
+                                <span>0.27 (-0.60)</span>
+                            </li>
+                        </ul>
+                        <p class="mt-4 text-xs text-gray-500">
+                            Both Action Alignment (AA) and Visual Alignment (VA) are critical. VA-Partial (masking only fingers) performs poorly, indicating full-hand augmentation is necessary.
                         </p>
-                    </div>
+                     </div>
 
-                    <div class="bg-white p-2 md:p-3 rounded-xl shadow-lg border border-gray-200">
-                        <div class="overflow-hidden rounded-lg bg-white">
-                            <img src="assets/fig/robot_number.png" alt="Robot Evaluation" class="w-full h-auto object-contain">
-                        </div>
-                        <p class="mt-4 text-sm text-gray-600 px-2 pb-2">
-                            <strong>Figure 7: Quantitative Metrics.</strong>
+                     <div class="bg-white p-6 rounded-xl shadow border border-gray-100">
+                        <h4 class="text-lg font-bold text-gray-800 mb-4">Ablation: Pretraining & Heads</h4>
+                        <ul class="space-y-3 text-sm text-gray-600">
+                            <li class="flex justify-between border-b pb-2">
+                                <span><strong>EasyMimic (Indep. Heads)</strong></span>
+                                <span class="font-bold text-blue-600">0.87</span>
+                            </li>
+                            <li class="flex justify-between border-b pb-2">
+                                <span>Shared Action Head</span>
+                                <span>0.47 (-0.40)</span>
+                            </li>
+                            <li class="flex justify-between border-b pb-2">
+                                <span>w/o Pretraining (EasyMimic)</span>
+                                <span>0.53</span>
+                            </li>
+                             <li class="flex justify-between">
+                                <span>w/o Pretraining (Robot-Only)</span>
+                                <span>0.15</span>
+                            </li>
+                        </ul>
+                        <p class="mt-4 text-xs text-gray-500">
+                            Independent action heads prevent interference between human/robot data. Combining EasyMimic with pre-training yields the best results.
                         </p>
+                     </div>
+                </div>
+
+                <!-- Case Study -->
+                <div class="mb-12">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4">Case Analysis & Visual Alignment</h4>
+                     <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white p-2 rounded-xl shadow-lg border border-gray-200">
+                            <div class="overflow-hidden rounded-lg bg-white">
+                                <img src="assets/fig/case_study.png" alt="Failure Case Study" class="w-full h-auto object-contain">
+                            </div>
+                            <p class="mt-4 text-sm text-gray-600 px-2 pb-2 text-center">
+                                <strong>Figure 5: Failure Modes.</strong> (a) Premature release, (b) Imprecise grasp, (c) Collision, (d) Unstable placement.
+                            </p>
+                        </div>
+
+                         <div class="bg-white p-2 rounded-xl shadow-lg border border-gray-200">
+                            <div class="overflow-hidden rounded-lg bg-white">
+                                <img src="assets/fig/VA_case.png" alt="Visual Alignment Module" class="w-full h-auto object-contain">
+                            </div>
+                            <p class="mt-4 text-sm text-gray-600 px-2 pb-2 text-center">
+                                <strong>Figure 6: Visual Alignment.</strong> Comparison of original human hand, partial masking, and full masking (VA-Full).
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Generalization -->
+                <div class="bg-yellow-50 rounded-xl border border-yellow-200 p-6">
+                    <h4 class="text-lg font-bold text-gray-800 mb-3">Zero-Shot Generalization</h4>
+                    <p class="text-gray-700 text-sm mb-4">
+                        Tested on unseen objects (Green Duck, Pink Cube) after training only on Pink Duck.
+                    </p>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div class="bg-white p-3 rounded shadow-sm">
+                            <div class="text-xs text-gray-500 uppercase font-bold">Unseen Object</div>
+                            <div class="font-bold text-gray-800">Avg. Score</div>
+                        </div>
+                        <div class="bg-white p-3 rounded shadow-sm opacity-60">
+                            <div class="text-xs text-gray-500 uppercase">Robot-Only</div>
+                            <div class="font-bold text-gray-400">0.35</div>
+                        </div>
+                        <div class="bg-white p-3 rounded shadow-sm border-2 border-yellow-400">
+                            <div class="text-xs text-gray-500 uppercase text-yellow-700">EasyMimic</div>
+                            <div class="font-bold text-yellow-700">0.65</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             
         </div>
     </section>
 
-    <section id="acknowledgments" class="py-16 bg-gray-50 border-t border-gray-200">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Acknowledgments</h2>
-            <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 text-center">
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    [Your Acknowledgments here, e.g. funding sources, advisors, etc.]
-                </p>
-            </div>
-        </div>
-    </section>
+    <!-- Removed Acknowledgments as requested -->
+
+    <section id="bibtex" class="py-16 bg-white">
 
     <section id="bibtex" class="py-16 bg-white">
         <div class="max-w-4xl mx-auto px-6">
